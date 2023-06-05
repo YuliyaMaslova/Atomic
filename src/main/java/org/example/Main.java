@@ -14,42 +14,21 @@ public class Main {
     Thread palindromeThread = new Thread(() -> {
       for (String text : texts) {
         if (isPalindrome(text)) {
-          int length = text.length();
-          if (length == 3) {
-            count3.incrementAndGet();
-          } else if (length == 4) {
-            count4.incrementAndGet();
-          } else if (length == 5) {
-            count5.incrementAndGet();
-          }
+          incrementCounter(text);
         }
       }
     });
     Thread sameLetterThread = new Thread(() -> {
       for (String text : texts) {
         if (isSameLetter(text)) {
-          int length = text.length();
-          if (length == 3) {
-            count3.incrementAndGet();
-          } else if (length == 4) {
-            count4.incrementAndGet();
-          } else if (length == 5) {
-            count5.incrementAndGet();
-          }
+          incrementCounter(text);
         }
       }
     });
     Thread ascendingThread = new Thread(() -> {
       for (String text : texts) {
         if (isAscending(text)) {
-          int length = text.length();
-          if (length == 3) {
-            count3.incrementAndGet();
-          } else if (length == 4) {
-            count4.incrementAndGet();
-          } else if (length == 5) {
-            count5.incrementAndGet();
-          }
+          incrementCounter(text);
         }
       }
     });
@@ -113,5 +92,16 @@ public class Main {
       }
     }
     return true;
+  }
+
+  private static void incrementCounter(String text) {
+    int length = text.length();
+    if (length == 3) {
+      count3.incrementAndGet();
+    } else if (length == 4) {
+      count4.incrementAndGet();
+    } else if (length == 5) {
+      count5.incrementAndGet();
+    }
   }
 }
